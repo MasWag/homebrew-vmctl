@@ -17,6 +17,8 @@ class Vmctl < Formula
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
     system 'install', 'src/vmctl', "#{prefix}/bin"
+    system 'mkdir', '-p', "#{prefix}/share/man/man1"
+    system 'install', 'doc/vmctl.1', "#{prefix}/share/man/man1"
 
     if build.with? 'bash-completion'
       system 'mkdir', '-p', "#{prefix}/etc/bash_completion.d/"

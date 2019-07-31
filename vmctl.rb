@@ -3,26 +3,26 @@
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Vmctl < Formula
   desc 'Uniform interface to multiple virtual machines'
-#  homepage ''
+  homepage 'https://github.com/MasWag/vmctl'
   url 'https://github.com/MasWag/vmctl/archive/master.tar.gz'
   version 'master'
-#  sha256 'c3e843b8ea33e7fc33b527c7a33670e63625a0dcba49af594bea9f195e25be94'
+  #  sha256 'c3e843b8ea33e7fc33b527c7a33670e63625a0dcba49af594bea9f195e25be94'
 
   depends_on 'jq'
   depends_on 'awscli' => :recommended
-  depends_on 'bash-completion' => :optional
-  depends_on 'caskroom/cask/virtualbox' => :optional
+  depends_on 'bash-completion' => :recommended
+  #  depends_on 'virtualbox' => :optional
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
-    system 'mkdir', '-p', "#{prefix}/bin"
+    mkdir_p "#{prefix}/bin"
     system 'install', 'src/vmctl', "#{prefix}/bin/vmctl"
-    system 'mkdir', '-p', "#{prefix}/share/man/man1"
+    mkdir_p "#{prefix}/share/man/man1"
     system 'install', 'doc/vmctl.1', "#{prefix}/share/man/man1/vmctl.1"
 
     if build.with? 'bash-completion'
-      system 'mkdir', '-p', "#{prefix}/etc/bash_completion.d/"
+      mkdir_p "#{prefix}/etc/bash_completion.d/"
       system 'install', 'src/vmctl_completion.bash', "#{prefix}/etc/bash_completion.d/"
     end
   end

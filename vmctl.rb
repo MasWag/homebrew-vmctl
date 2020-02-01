@@ -1,12 +1,14 @@
+require 'formula'
+HOMEBREW_VMCTL_VERSION='1.0'
 # Documentation: https://docs.brew.sh/Formula-Cookbook
 #                http://www.rubydoc.info/github/Homebrew/brew/master/Formula
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Vmctl < Formula
   desc 'Uniform interface to multiple virtual machines'
   homepage 'https://github.com/MasWag/vmctl'
-  url 'https://github.com/MasWag/vmctl/archive/master.tar.gz'
-  version 'master'
-  #  sha256 'c3e843b8ea33e7fc33b527c7a33670e63625a0dcba49af594bea9f195e25be94'
+  url 'https://github.com/MasWag/vmctl.git', tag: "v#{HOMEBREW_VMCTL_VERSION}"
+  version HOMEBREW_VMCTL_VERSION
+  head 'https://github.com/MasWag/vmctl.git', branch: 'master'
 
   depends_on 'jq'
   depends_on 'awscli' => :recommended

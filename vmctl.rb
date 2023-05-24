@@ -1,5 +1,5 @@
 require 'formula'
-HOMEBREW_VMCTL_VERSION='1.0'
+HOMEBREW_VMCTL_VERSION='1.1'
 # Documentation: https://docs.brew.sh/Formula-Cookbook
 #                http://www.rubydoc.info/github/Homebrew/brew/master/Formula
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
@@ -12,6 +12,7 @@ class Vmctl < Formula
 
   depends_on 'jq'
   depends_on 'awscli' => :recommended
+  #  depends_on 'google-cloud-sdk' => :recommended
   depends_on 'bash-completion' => :recommended
   #  depends_on 'virtualbox' => :optional
 
